@@ -2,8 +2,8 @@
 A simple example for illustrating MVVM-Coordicator pattern in Swift.
 
 ## Dependencies
- * RxSwift
- * RxCocoa
+ * [RxSwift](https://github.com/ReactiveX/RxSwift)
+ * [RxCocoa](https://github.com/ReactiveX/RxSwift/tree/master/RxCocoa)
 
 ## References
  * [fantastic-ios-architecture](https://github.com/onmyway133/fantastic-ios-architecture)
