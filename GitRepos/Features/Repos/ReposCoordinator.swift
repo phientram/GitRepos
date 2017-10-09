@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import RxSwift
+import SafariServices
 
 class ReposCoordinator: BaseCoordinator<Void> {
     private let window: UIWindow
@@ -24,9 +25,20 @@ class ReposCoordinator: BaseCoordinator<Void> {
         
         viewController.viewModel = viewModel
         
+        // navigate to repository detail
+        viewModel.showRepository
+            .subscribe(onNext: { [weak self] url in
+                self?.showRepositoryDetail(url: url, navigationController: navigationController)
+            })
+            .disposed(by: disposeBag)
+        
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
         
         return Observable.never()
+    }
+    
+    private func showRepositoryDetail(url: URL, navigationController: UINavigationController) {
+        navigationController.pushViewController(SFSafariViewController(url: url), animated: true)
     }
 }

@@ -37,6 +37,11 @@ class ReposViewController: UIViewController, StoryboardInitializable {
                 self?.setupRepositoryCell(cell, repository: repo)
             }
             .disposed(by: disposeBag)
+        
+        // select row
+        tableView.rx.modelSelected(RepositoryViewModel.self)
+            .bind(to: viewModel.selectRepository)
+            .disposed(by: disposeBag)
     }
     /*
     // MARK: - Navigation

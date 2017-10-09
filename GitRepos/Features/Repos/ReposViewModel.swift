@@ -15,10 +15,16 @@ class ReposViewModel {
     /// Call to update current language. Causes reload of the repositories.
     let setCurrentLanguage: AnyObserver<String>
     
+    /// Call to open repository page.
+    let selectRepository: AnyObserver<RepositoryViewModel>
+    
     // MARK: - Outputs
     
     /// Emits an array of fetched repositories.
     let repositories: Observable<[RepositoryViewModel]>
+    
+    /// Emits an url of repository page to be shown.
+    let showRepository: Observable<URL>
     
     init(initialLanguage: String, githubService: GithubService = GithubService()) {
         
@@ -36,5 +42,8 @@ class ReposViewModel {
             .map { repositories in repositories.map(RepositoryViewModel.init) }
         
         
+        let _selectRepository = PublishSubject<RepositoryViewModel>()
+        self.selectRepository = _selectRepository.asObserver()
+        self.showRepository = _selectRepository.asObservable().map { $0.url }
     }
 }
