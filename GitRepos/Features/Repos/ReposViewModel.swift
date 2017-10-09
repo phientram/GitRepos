@@ -26,10 +26,15 @@ class ReposViewModel {
     /// Emits an url of repository page to be shown.
     let showRepository: Observable<URL>
     
+    /// Emits a formatted title for a navigation item.
+    let title: Observable<String>
+    
     init(initialLanguage: String, githubService: GithubService = GithubService()) {
         
         let _currentLanguageSubject = BehaviorSubject<String>(value: initialLanguage)
         self.setCurrentLanguage = _currentLanguageSubject.asObserver()
+        
+        self.title = _currentLanguageSubject.asObservable()
         
         self.repositories = _currentLanguageSubject.asObservable()
             .flatMapLatest { language in

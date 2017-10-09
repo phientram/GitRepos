@@ -38,6 +38,11 @@ class ReposViewController: UIViewController, StoryboardInitializable {
             }
             .disposed(by: disposeBag)
         
+        // title
+        viewModel.title
+            .bind(to: navigationItem.rx.title)
+            .disposed(by: disposeBag)
+        
         // select row
         tableView.rx.modelSelected(RepositoryViewModel.self)
             .bind(to: viewModel.selectRepository)
