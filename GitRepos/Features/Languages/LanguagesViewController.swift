@@ -45,6 +45,10 @@ class LanguagesViewController: UIViewController, StoryboardInitializable {
                 cell.selectionStyle = .none
             }
             .disposed(by: disposeBag)
+        
+        tableView.rx.modelSelected(String.self)
+            .bind(to: viewModel.selectLanguage)
+            .disposed(by: disposeBag)
     }
 
     /*
