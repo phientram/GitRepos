@@ -38,6 +38,13 @@ class LanguagesViewController: UIViewController, StoryboardInitializable {
             .disposed(by: disposeBag)
         
         
+        viewModel.languages
+            .observeOn(MainScheduler.instance)
+            .bind(to: tableView.rx.items(cellIdentifier: "LanguageCell", cellType: UITableViewCell.self)) { (_, language, cell) in
+                cell.textLabel?.text = language
+                cell.selectionStyle = .none
+            }
+            .disposed(by: disposeBag)
     }
 
     /*
