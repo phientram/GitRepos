@@ -32,6 +32,17 @@ class ReposCoordinator: BaseCoordinator<Void> {
             })
             .disposed(by: disposeBag)
         
+        // navigate to language list
+        viewModel.showLanguageList
+            .flatMap { [weak self] _ -> Observable<String?> in
+                guard let `self` = self else { return .empty() }
+                return self.showLanguageList(on: viewController)
+            }
+            .filter { $0 != nil }
+            .map { $0! }
+            .bind(to: viewModel.setCurrentLanguage)
+            .disposed(by: disposeBag)
+        
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
         
@@ -40,5 +51,16 @@ class ReposCoordinator: BaseCoordinator<Void> {
     
     private func showRepositoryDetail(url: URL, navigationController: UINavigationController) {
         navigationController.pushViewController(SFSafariViewController(url: url), animated: true)
+    }
+    
+    private func showLanguageList(on rootViewController: UIViewController) -> Observable<String?> {
+        let languageListCoordinator = LanguageCoordinator(rootViewController: rootViewController)
+        return coordinate(to: languageListCoordinator)
+            .map { result in
+                switch result {
+                case .language(let language): return language
+                case .cancel: return nil
+                }
+            }
     }
 }

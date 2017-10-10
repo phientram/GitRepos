@@ -33,6 +33,10 @@ class LanguagesViewController: UIViewController, StoryboardInitializable {
     }
     
     private func setupBinding() {
+        cancelButton.rx.tap
+            .bind(to: viewModel.cancel)
+            .disposed(by: disposeBag)
+        
         
     }
 

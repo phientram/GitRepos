@@ -10,21 +10,24 @@ import Foundation
 import RxSwift
 
 class ReposViewModel {
-    // MARK: - Inputs
+    /// Input: Call to open repository page.
+    let selectRepository: AnyObserver<RepositoryViewModel>
+    /// Output: Emits an url of repository page to be shown.
+    let showRepository: Observable<URL>
     
+    /// Input: Call to show language list screen.
+    let chooseLanguage: AnyObserver<Void>
+    /// Output: Emits when we should show language list.
+    let showLanguageList: Observable<Void>
+    
+    
+    // MARK: - Inputs
     /// Call to update current language. Causes reload of the repositories.
     let setCurrentLanguage: AnyObserver<String>
     
-    /// Call to open repository page.
-    let selectRepository: AnyObserver<RepositoryViewModel>
-    
     // MARK: - Outputs
-    
     /// Emits an array of fetched repositories.
     let repositories: Observable<[RepositoryViewModel]>
-    
-    /// Emits an url of repository page to be shown.
-    let showRepository: Observable<URL>
     
     /// Emits a formatted title for a navigation item.
     let title: Observable<String>
@@ -50,5 +53,9 @@ class ReposViewModel {
         let _selectRepository = PublishSubject<RepositoryViewModel>()
         self.selectRepository = _selectRepository.asObserver()
         self.showRepository = _selectRepository.asObservable().map { $0.url }
+        
+        let _chooseLanguageSubject = PublishSubject<Void>()
+        self.chooseLanguage = _chooseLanguageSubject.asObserver()
+        self.showLanguageList = _chooseLanguageSubject.asObservable()
     }
 }

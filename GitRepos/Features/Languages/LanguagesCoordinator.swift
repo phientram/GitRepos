@@ -39,6 +39,8 @@ class LanguageCoordinator: BaseCoordinator<LanguageCoordinationResult> {
         
         return Observable.merge(cancel, language)
             .take(1)
-            .do(onNext: { [weak self] _ in self?.rootViewController.dismiss(animated: false) })
+            .do(onNext: { [weak self] _ in
+                self?.rootViewController.dismiss(animated: false)
+            })
     }
 }

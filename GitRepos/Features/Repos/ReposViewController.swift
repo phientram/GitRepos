@@ -12,6 +12,7 @@ import RxSwift
 class ReposViewController: UIViewController, StoryboardInitializable {
 
     @IBOutlet private weak var tableView: UITableView!
+    private let chooseLanguageButton = UIBarButtonItem(barButtonSystemItem: .organize, target: nil, action: nil)
     
     var viewModel: ReposViewModel!
     private let disposeBag = DisposeBag()
@@ -26,11 +27,17 @@ class ReposViewController: UIViewController, StoryboardInitializable {
     }
     
     private func setupUI() {
+        navigationItem.rightBarButtonItem = chooseLanguageButton
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
     }
     
     private func setupBindings() {
+        // choose language button
+        chooseLanguageButton.rx.tap
+            .bind(to: viewModel.chooseLanguage)
+            .disposed(by: disposeBag)
+        
         viewModel.repositories
             .observeOn(MainScheduler.instance)
             .bind(to: tableView.rx.items(cellIdentifier: "RepositoryCell", cellType: RepositoryCell.self)) { [weak self] (_, repo, cell) in
