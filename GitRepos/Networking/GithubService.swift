@@ -29,7 +29,12 @@ class GithubService {
             "C",
             "C++",
             "Python",
-            "C#"
+            "C#",
+            "Kotlin",
+            "Javascript",
+            "Typescript",
+            "Golang",
+            "Erlang"
             ])
     }
     
