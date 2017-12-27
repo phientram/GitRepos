@@ -10,7 +10,6 @@
 		733A138C1F8646A40068E31B /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A138A1F8646A40068E31B /* BaseCoordinator.swift */; };
 		733A138D1F8646A40068E31B /* StoryboardInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A138B1F8646A40068E31B /* StoryboardInitializable.swift */; };
 		733A13931F86472F0068E31B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A13921F86472F0068E31B /* AppDelegate.swift */; };
-		733A13961F86474F0068E31B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A13951F86474F0068E31B /* ViewController.swift */; };
 		733A13991F8647C30068E31B /* GithubService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A13981F8647C30068E31B /* GithubService.swift */; };
 		733A139C1F8688450068E31B /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A139B1F8688450068E31B /* Repository.swift */; };
 		733A139E1F8689B90068E31B /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A139D1F8689B90068E31B /* AppCoordinator.swift */; };
@@ -47,7 +46,6 @@
 		733A138A1F8646A40068E31B /* BaseCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		733A138B1F8646A40068E31B /* StoryboardInitializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardInitializable.swift; sourceTree = "<group>"; };
 		733A13921F86472F0068E31B /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		733A13951F86474F0068E31B /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		733A13981F8647C30068E31B /* GithubService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubService.swift; sourceTree = "<group>"; };
 		733A139B1F8688450068E31B /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		733A139D1F8689B90068E31B /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
@@ -131,7 +129,6 @@
 			isa = PBXGroup;
 			children = (
 				733A139F1F868A1B0068E31B /* Languages */,
-				733A13951F86474F0068E31B /* ViewController.swift */,
 				733A13941F86473C0068E31B /* Repos */,
 			);
 			path = Features;
@@ -153,7 +150,6 @@
 				733A13A21F868A9A0068E31B /* ReposCoordinator.swift */,
 				733A13A81F8691F00068E31B /* ReposViewController.swift */,
 				733A13AA1F8692030068E31B /* ReposViewModel.swift */,
-				733A13AC1F8692CC0068E31B /* RepositoryViewModel.swift */,
 				733A13AE1F8698D80068E31B /* RepositoryCell.swift */,
 			);
 			path = Repos;
@@ -181,7 +177,6 @@
 			children = (
 				733A13A01F868A5C0068E31B /* LanguagesCoordinator.swift */,
 				733A13A41F868BF30068E31B /* LanguagesViewController.swift */,
-				733A13A61F868D170068E31B /* LanguagesViewModel.swift */,
 			);
 			path = Languages;
 			sourceTree = "<group>";
@@ -210,6 +205,7 @@
 		738B0CEE1F8606FE00CBB04F /* GitRepos */ = {
 			isa = PBXGroup;
 			children = (
+				73D157DC1FF3F28C00385215 /* ViewModels */,
 				733A139A1F8688220068E31B /* Models */,
 				733A138E1F8646C30068E31B /* App */,
 				733A13901F8646EA0068E31B /* Features */,
@@ -226,6 +222,15 @@
 				738B0D061F8606FE00CBB04F /* Info.plist */,
 			);
 			path = GitReposTests;
+			sourceTree = "<group>";
+		};
+		73D157DC1FF3F28C00385215 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				733A13AC1F8692CC0068E31B /* RepositoryViewModel.swift */,
+				733A13A61F868D170068E31B /* LanguagesViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		91121CCDF93507D013A23D42 /* Pods */ = {
@@ -463,7 +468,6 @@
 				733A13AB1F8692030068E31B /* ReposViewModel.swift in Sources */,
 				733A13931F86472F0068E31B /* AppDelegate.swift in Sources */,
 				733A138C1F8646A40068E31B /* BaseCoordinator.swift in Sources */,
-				733A13961F86474F0068E31B /* ViewController.swift in Sources */,
 				733A13991F8647C30068E31B /* GithubService.swift in Sources */,
 				733A138D1F8646A40068E31B /* StoryboardInitializable.swift in Sources */,
 				733A13A31F868A9A0068E31B /* ReposCoordinator.swift in Sources */,
